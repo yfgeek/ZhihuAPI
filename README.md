@@ -16,18 +16,18 @@ echo $p;
 返回数据
 ```javascript
 {
-    "type": "User",
-    "name": "Ivan",
-    "gender": "男",
-    "bio": "求工作/Web前端",
-    "location": "北京",
-    "business": "互联网",
-    "follow": {
-        "following": "368",
-        "follower": "134"
+    type: "User",
+    name: "Ivan",
+    gender: "男",
+    bio: "求工作/Web前端",
+    location: "北京",
+    business: "互联网",
+    follow: {
+        following: "368",
+        follower: "134"
     },
-    "agree": "1322",
-    "thanks": "238"
+    agree: "1322",
+    thanks: "238"
 }
 ```
 #### getName()
