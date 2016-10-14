@@ -10,15 +10,7 @@
 
 ## Activity($username)
 特定用户的最新动态部分
-### 返回
-```
-{
- content: [{title: "学习JavaScript必读的12本书", date: "1 天前", url: "http://zhuanlan.zhihu.com/p/22914734"},…],
- items : 10,
- type : "Activity"
-}
-```
-示例
+示例代码
 
 ```
 require('API/Activity.class.php');
@@ -27,6 +19,14 @@ $p->init();
 $p->postLink();
 $p->questionLink();
 echo $p;
+```
+返回
+```
+{
+ content: [{title: "学习JavaScript必读的12本书", date: "1 天前", url: "http://zhuanlan.zhihu.com/p/22914734"},…],
+ items : 10,
+ type : "Activity"
+}
 ```
 ### postLink()
 获取该用户关于专栏的最新动态
