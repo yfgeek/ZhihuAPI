@@ -72,8 +72,6 @@ echo $p;
 require('API/Activity.class.php');
 $p = new Activity("yfgeek");
 $p->init();
-$p->postLink();
-$p->questionLink();
 echo $p;
 ```
 返回数据
@@ -91,9 +89,9 @@ echo $p;
     type: "Activity"
 }
 ```
-#### postLink()
+#### getPostLink()
 获取该用户关于专栏的最新动态
-#### questionLink()
+#### getPuestionLink()
 获取该用户关于问题的最新动态
 
 # 声明
