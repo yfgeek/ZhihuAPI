@@ -5,7 +5,7 @@
 
 ## 路由
 
-index.php 文件负责显示
+`index.php` 文件负责显示
 
 | 请求           | 类型           | 值  |
 |:------------- |:-------------|:--------|
@@ -13,6 +13,10 @@ index.php 文件负责显示
 | $action      | POST/GET      |   表示行为 User/Activity |
 | $do | POST/GET  |表示获取内容 如果是list则全部输出 否则按照下面定义的方法输出|
 
+#### 请求样例
+```
+index.php?user=yfgeek&action=user&do=getFollow
+```
 ## User($username)
 用户信息部分
 示例代码
