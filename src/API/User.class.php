@@ -7,12 +7,7 @@
 */
 require('Main.class.php');
 class User extends Main{
-	public $username;
 	public $detail;
-	// 构造器
-	function User($username){
-		$this->username = $username;
-	}
 	// 获取名字
 	function getName(){
 		$q = pq(".title-section .name")->html();
@@ -38,7 +33,7 @@ class User extends Main{
 		$q = pq(".info-wrap .gender")->find("i")->attr("class");
         return $this->__fixGender($q); 
     }
-    //获取关注和粉丝
+    // 获取关注和粉丝
     function getFollow(){
         $i =0;
 		$q = pq(".zm-profile-side-following .item")->find("strong");
@@ -48,17 +43,17 @@ class User extends Main{
 		}
         return array("following" =>$arr[0], "follower"=>$arr[1]); 
     }
-    //获得赞同
+    // 获得赞同
     function getAgree(){
 		$q = pq(".zm-profile-header-user-agree")->find("strong")->html();
         return $q; 
     }
-    //获得感谢
+    // 获得感谢
     function getThanks(){
 		$q = pq(".zm-profile-header-user-thanks")->find("strong")->html();
         return $q; 
     }
-    //将性别显示男或女
+    // 将性别显示男或女
     function __fixGender($classname){
         if(stristr($classname,"female")){
             return "女";
@@ -66,7 +61,7 @@ class User extends Main{
             return "男";
         }
     }
-	//toString方法 返回 类型、拉取的数量、最后输出json
+	// toString方法 返回 类型、拉取的数量、最后输出json
 	function __toString(){
 		$this->detail["type"] = "User";
         $this->detail["name"] = $this->getName();
@@ -77,7 +72,7 @@ class User extends Main{
         $this->detail["follow"] = $this->getFollow();   
         $this->detail["agree"] = $this->getAgree(); 
         $this->detail["thanks"] = $this->getThanks();  
-		return json_encode($this->detail);
+		return $this->detail;
 	}
 }
 ?>

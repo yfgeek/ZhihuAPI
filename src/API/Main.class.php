@@ -8,6 +8,10 @@
 **	@时间 2016-10-14
 */
 class Main {
+	//构造器
+	function Main($username){
+		$this->username = $username;
+	}
 	// 初始化 加载phpquery类
 	function init(){
 	define('ROOT_PATH',dirname(__FILE__));
