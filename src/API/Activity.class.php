@@ -41,7 +41,7 @@ class Activity extends Main{
 		$this->getPostLink();
 		$this->getQuestionLink();
 		$this->detail["content"]=$this->arr;
-		return $this->detail;
+		return json_encode($this->detail);
 	}
 }
 ?>

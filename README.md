@@ -10,8 +10,8 @@
 | 请求           | 类型           | 值  |
 |:------------- |:-------------|:--------|
 | $user         | POST/GET | 用户名 |
-| $action      | POST/GET      |   表示行为 User/Activity |
-| $do | POST/GET  |表示获取内容 如果是list则全部输出 否则按照下面定义的方法输出|
+| $action      | POST/GET      |   行为 User/Activity |
+| $do | POST/GET  |内容 如果是list则全部输出 否则按照下面定义的方法输出|
 
 #### 请求样例
 ```

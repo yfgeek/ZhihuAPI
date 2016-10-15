@@ -24,7 +24,7 @@ if($action == "activity"){
     $p = new Activity($user);
     $p->init();
     if ($do=="list"){
-        echo json_encode($p);
+        echo $p;
     }else{
         echo json_encode($p->$do());
     }
@@ -33,7 +33,7 @@ if($action == "activity"){
     $p = new User($user);
     $p->init();
     if ($do=="list"){
-        echo json_encode($p);
+        echo $p;
     }else{
         echo json_encode($p->$do());
     }
