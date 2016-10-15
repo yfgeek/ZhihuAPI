@@ -10,7 +10,8 @@
 class Main {
 	// 初始化 加载phpquery类
 	function init(){
-	require('phpQuery/phpQuery.php');
+	define('ROOT_PATH',dirname(__FILE__));
+	require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
 	phpQuery::newDocumentFile('https://www.zhihu.com/people/'. $this->username); 
 	}
 	// 修正Url

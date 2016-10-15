@@ -1,0 +1,26 @@
+{
+    "name": "zhihuAPI",
+    "description": "the API of zhihu user",
+    "type": "project",
+    "keywords": [
+        "zhihu",
+        "zhihuAPI"
+    ],
+    "homepage": "https://github.com/yfgeek/ZhihuAPI",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "yfgeek",
+            "email": "yfgeek@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+            },
+    "extra": {
+        "zhihu-path": "src"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
