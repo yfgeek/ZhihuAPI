@@ -13,19 +13,26 @@ class Main {
 		$this->username = $username;
 	}
 	// 初始化 加载phpquery类
-	function init(){
+	public function init(){
 	define('ROOT_PATH',dirname(__FILE__));
 	define('WEB_PATH','https://www.zhihu.com//people/');
 	require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
 	phpQuery::newDocumentFile(WEB_PATH. $this->username); 
 	}
 	// 修正Url
-	function fixUrl($url){
+	protected function fixUrl($url){
 	if($url[0]=='/'){
 		return "http://www.zhihu.com".$url;
 	}
 	else return $url;
 	}
+	// 删除多余空格 回车
+	protected function fixSpaces($str){
+		while($str[0]==" " || $str[0]=="　" || $str[0]=="\n"){
+			$str = substr($str,1);
+		}
+        return $str;
+	} 
 }
 ?>
 

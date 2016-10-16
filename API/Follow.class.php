@@ -15,6 +15,9 @@ class Follow extends Main{
 	require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
 	phpQuery::newDocumentFile(WEB_PATH. $this->username."/followees"); 
     }
+	public function getFollowees(){
+		return 3;
+	}
 	// toString方法 返回 类型、拉取的数量、最后输出json
 	function __toString(){
 		return json_encode($this->detail);

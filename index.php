@@ -17,8 +17,15 @@
 **  请求样例：index.php?user=yfgeek&class=user&method=getFollow
 **  method方法可省略
 */
+
+//模糊匹配 class
+function fuzzMaching($str){
+    $str = strtolower($str);
+    $str[0] = strtoupper($str);
+    return $str;
+}
 $user = isset($_REQUEST['user']) ? $_REQUEST['user'] : "";
-$class = isset($_REQUEST['class']) ? $_REQUEST['class'] : "";
+$class = isset($_REQUEST['class']) ? fuzzMaching($_REQUEST['class']) : ""; //需要对用户请求进行模糊匹配
 $method = isset($_REQUEST['method']) ? $_REQUEST['method'] : "list";
 
 if ($user && $class && $method) { // 当请求非空时
