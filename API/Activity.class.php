@@ -34,7 +34,7 @@ class Activity extends Main{
 				$this->arr[$this->itemi]["url"]= parent::fixUrl(pq($item)->attr("href")); 
 				pq($item)->parent()->find("a")->html(""); //删掉链接
 				$this->arr[$this->itemi]["status"] = parent::fixSpaces(pq($item)->parent()->text());
-				pq($item)->parent()->parent()->find(".zh-summary")->find("a")->html(""); // 删掉阅读全文
+				pq($item)->parent()->parent()->find(".zh-summary")->find(".toggle-expand")->html(""); // 删掉阅读全文
 				$this->arr[$this->itemi]["description"] = parent::fixSpaces(pq($item)->parent()->parent()->find(".zh-summary")->text());
 				$this->itemi++;
 			}
