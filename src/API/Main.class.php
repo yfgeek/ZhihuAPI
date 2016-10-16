@@ -15,8 +15,9 @@ class Main {
 	// 初始化 加载phpquery类
 	function init(){
 	define('ROOT_PATH',dirname(__FILE__));
+	define('WEB_PATH','https://www.zhihu.com//people/');
 	require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
-	phpQuery::newDocumentFile('https://www.zhihu.com/people/'. $this->username); 
+	phpQuery::newDocumentFile(WEB_PATH. $this->username); 
 	}
 	// 修正Url
 	function fixUrl($url){

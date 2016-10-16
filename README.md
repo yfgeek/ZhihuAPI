@@ -10,12 +10,13 @@
 | 请求           | 类型           | 值  |
 |:------------- |:-------------|:--------|
 | $user         | POST/GET | 用户名 |
-| $action      | POST/GET      |   行为 User/Activity |
-| $do | POST/GET  |内容 如果是list则全部输出 否则按照下面定义的方法输出|
+| $class      | POST/GET      |   请求类 首字母必须大写 User/Activity |
+| $method | POST/GET  |方法 可不写则全部输出 否则按照下面定义的方法输出|
 
 #### 请求样例
 ```
-index.php?user=yfgeek&action=user&do=getFollow
+index.php?user=yfgeek&class=User&method=getFollow
+index.php?user=yfgeek&class=Activity
 ```
 ## User($username)
 用户信息部分
