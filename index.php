@@ -19,47 +19,52 @@
 */
 
 //模糊匹配 class
-function fuzzMaching($str){
+function fuzz_maching($str){
     $str = strtolower($str);
     $str[0] = strtoupper($str);
     return $str;
 }
-$user = isset($_REQUEST['user']) ? $_REQUEST['user'] : "";
-$class = isset($_REQUEST['class']) ? fuzzMaching($_REQUEST['class']) : ""; //需要对用户请求进行模糊匹配
-$method = isset($_REQUEST['method']) ? $_REQUEST['method'] : "list";
+//加载类
+function load_class($class)
+{
+    $filename = 'API/' . $class . '.php';
+    if(file_exists($filename)){
+     require_once($filename);
+    } 
+}
 
+$user = isset($_REQUEST['user']) ? $_REQUEST['user'] : "";
+$class = isset($_REQUEST['class']) ? fuzz_maching($_REQUEST['class']) : "";
+$method = isset($_REQUEST['method']) ? $_REQUEST['method'] : "list";
+$filename = 'API/' . $class . '.php';
 if ($user && $class && $method) { // 当请求非空时
-    try {
-        $filename = 'API/' . $class . '.php';
         // 判断API类文件是否存在
-        if (file_exists($filename)) {
-            require_once ($filename);
-            $p = new $class($user); // 实例化对象 这种写法竟然是可以的
-            $p->init(); // 初始化对象
+        try{
+        if (file_exists($filename)){        
+            if(spl_autoload_register('load_class')){
+            $p = new $class($user); 
+            $p->init(); 
             if ($method == "list") {
-                echo $p; //__toString()给出的json
+                echo $p;
             } else {
                 try {
                     if (method_exists($p, $method)) {   // 检测是否存在这个方法
                         echo json_encode($p->$method()); // json encode 请求的方法
-                        
+
                     } else {
-                        throw new Exception('API method is not exists');
+                        throw new Exception('API method is not exist');
                     }
                 }
                 catch(Exception $e) {
                     echo json_encode(array("status"=>"fail","error"=>$e->getMessage()));
                 }
             }
-        } else {
-            throw new Exception('API is not exists');
         }
-    }
-    catch(Exception $e) {
-        echo json_encode(array("status"=>"fail","error"=>$e->getMessage()));
-    }
-} else {
-     echo json_encode(array("status"=>"fail","error"=>"API require at least two request"));
+        }else{
+            throw new Exception('API is not exist');
+        }
+        }catch(Exception $e) {
+             echo json_encode(array("status"=>"fail","error"=>$e->getMessage()));
+            }
 }
-
 ?>
