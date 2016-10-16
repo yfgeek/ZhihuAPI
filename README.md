@@ -10,7 +10,7 @@
 | 请求           | 类型           | 值  |
 |:------------- |:-------------|:--------|
 | $user         | POST/GET | 用户名 |
-| $class      | POST/GET      |   请求类 首字母必须大写 User/Activity |
+| $class      | POST/GET      |   请求类  User/Activity |
 | $method | POST/GET  |方法 可不写则全部输出 否则按照下面定义的方法输出|
 
 #### 请求样例
