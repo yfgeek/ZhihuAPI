@@ -7,14 +7,14 @@
 **	@作者 yfgeek
 **	@时间 2016-10-14
 */
-require('API/Activity.php');
-$p = new Activity("yfgeek");
-$p->init();
-echo $p;
-
-// require('API/User.class.php');
-// $p = new User("yfgeek");
+// require('API/Activity.php');
+// $p = new Activity("yfgeek");
 // $p->init();
 // echo $p;
+
+require('API/User.php');
+$p = new User("yfgeek");
+$p->init();
+echo $p;
 
 ?>
