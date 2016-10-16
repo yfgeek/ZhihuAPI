@@ -30,7 +30,7 @@ $method = isset($_REQUEST['method']) ? $_REQUEST['method'] : "list";
 
 if ($user && $class && $method) { // 当请求非空时
     try {
-        $filename = 'API/' . $class . '.class.php';
+        $filename = 'API/' . $class . '.php';
         // 判断API类文件是否存在
         if (file_exists($filename)) {
             require_once ($filename);

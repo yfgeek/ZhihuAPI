@@ -5,7 +5,7 @@
 **	@作者 yfgeek
 **	@时间 2016-10-14
 */
-require('Main.class.php');
+require('Main.php');
 class Activity extends Main{
 	public $detail;
 	private $itemi = 0;

@@ -24,7 +24,7 @@ index.php?user=yfgeek&class=Activity
 示例代码
 
 ```php
-require('API/User.class.php');
+require('API/User.php');
 $p = new User("yfgeek");
 $p->init();
 echo $p;
@@ -85,7 +85,7 @@ echo $p;
 示例代码
 
 ```php
-require('API/Activity.class.php');
+require('API/Activity.php');
 $p = new Activity("yfgeek");
 $p->init();
 echo $p;

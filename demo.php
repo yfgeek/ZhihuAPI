@@ -7,7 +7,7 @@
 **	@作者 yfgeek
 **	@时间 2016-10-14
 */
-require('API/Activity.class.php');
+require('API/Activity.php');
 $p = new Activity("yfgeek");
 $p->init();
 echo $p;

@@ -5,7 +5,7 @@
 **	@作者 yfgeek
 **	@时间 2016-10-16
 */
-require('Main.class.php');
+require('Main.php');
 class Follow extends Main{
 	public $detail;
     // 重写init方法

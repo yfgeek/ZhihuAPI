@@ -5,7 +5,7 @@
 **	@作者 yfgeek
 **	@时间 2016-10-14
 */
-require('Main.class.php');
+require('Main.php');
 class User extends Main{
 	public $detail;
 	// 获取名字
