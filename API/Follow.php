@@ -20,7 +20,8 @@ class Follow extends Main{
 	}
 	// toString方法 返回 类型、拉取的数量、最后输出json
 	function __toString(){
-		return json_encode($this->detail);
+		//让php支持json中文编码
+		return json_encode($this->detail,JSON_UNESCAPED_UNICODE);
 	}
 }
 ?>

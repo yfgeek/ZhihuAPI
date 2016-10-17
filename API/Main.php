@@ -28,7 +28,8 @@ class Main {
 	}
 	// 删除多余空格 回车
 	protected function fixSpaces($str){
-		while($str[0]==" " || $str[0]=="　" || $str[0]=="\n"){
+        //fix bug我的账号会报 Uninitialized string offset: 0的错误
+		while(!empty($str[0])&&($str[0]==" " || $str[0]=="　" || $str[0]=="\n")){
 			$str = substr($str,1);
 		}
         return $str;
