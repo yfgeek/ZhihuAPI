@@ -71,8 +71,9 @@ class User extends Main{
         $this->detail["business"] = $this->getBusiness();
         $this->detail["follow"] = $this->getFollow();   
         $this->detail["agree"] = $this->getAgree(); 
-        $this->detail["thanks"] = $this->getThanks();  
-		return json_encode($this->detail);
+        $this->detail["thanks"] = $this->getThanks();
+        //让php支持json中文编码
+		return json_encode($this->detail,JSON_UNESCAPED_UNICODE);
 	}
 }
 ?>

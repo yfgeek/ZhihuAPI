@@ -48,7 +48,8 @@ class Activity extends Main{
 		$this->getQuestionLink();
 		$this->detail["content"]=$this->arr;
 		$this->detail["items"]=$this->itemi;
-		return json_encode($this->detail);
+        //让php支持json中文编码
+		return json_encode($this->detail,JSON_UNESCAPED_UNICODE);
 	}
 }
 ?>
