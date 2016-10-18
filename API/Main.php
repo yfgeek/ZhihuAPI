@@ -14,10 +14,9 @@ class Main {
     }
     // 初始化 加载phpquery类
     public function init(){
-    define('ROOT_PATH',dirname(__FILE__));
-    define('WEB_PATH','https://www.zhihu.com//people/');
-    require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
-    phpQuery::newDocumentFile(WEB_PATH. $this->username); 
+	$web_path = "https://www.zhihu.com/people/";
+    require_once(ROOT_PATH . '/phpQuery/phpQuery.php');
+    phpQuery::newDocumentFile($web_path. $this->username); 
     }
     // 修正Url
     protected function fixUrl($url){
@@ -33,6 +32,10 @@ class Main {
             $str = substr($str,1);
         }
         return $str;
+    }
+    // 销毁phpQuery
+    function __destruct() {
+       phpQuery::unloadDocuments();
     } 
 }
 ?>
