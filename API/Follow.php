@@ -10,13 +10,16 @@ class Follow extends Main{
     public $detail;
     // 重写init方法
     public function init(){
-    define('ROOT_PATH',dirname(__FILE__));
-    define('WEB_PATH','https://www.zhihu.com/people/');
-    require_once(ROOT_PATH . './../phpQuery/phpQuery.php');
-    phpQuery::newDocumentFile(WEB_PATH. $this->username."/followees"); 
+	$web_path = "https://www.zhihu.com/people/";
+    require_once(ROOT_PATH . '/phpQuery/phpQuery.php');
+    phpQuery::newDocumentFile($web_path. $this->username."/followees"); 
     }
     public function getFollowees(){
-        return 3;
+	 phpQuery::browserGet('http://www.google.com/', 'success1');
+
+    }
+    public function getFollower(){
+
     }
     // toString方法 返回 类型、拉取的数量、最后输出json
     function __toString(){
@@ -25,3 +28,4 @@ class Follow extends Main{
     }
 }
 ?>
+

@@ -12,9 +12,18 @@
 // $p->init();
 // echo $p;
 
-require('API/User.php');
-$p = new User("yfgeek");
-$p->init();
-echo $p;
-
+// require('API/User.php');
+// $p = new User("yfgeek");
+// $p->init();
+// echo $p;
+require_once('phpQuery/phpQuery.php'); 
+// phpQuery::browserGet('http://www.zhihu.com/people/yfgeek', 'success1'); 
+phpQuery::browserGet('http://news.163.com/', 'success1'); 
+function success1($browser) { 
+    $browser ->WebBrowser('callback') ->find('.zu-button-more') ->click(); 
+    } 
+function callback($browser) { 
+    // $q = pq("#zh-profile-activity-wrap .zm-profile-activity-page-item-main");
+    print $browser;
+    }
 ?>
