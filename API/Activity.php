@@ -16,6 +16,9 @@ class Activity extends Main{
         $column = pq($q)->find(".post-link");
         return $this->getQuestion($column);
     }
+    public function getTest(){
+        return parent::fixSpaces(" 1");
+    }
     // 获得最近问题点赞信息
     public function getQuestionLink(){
         $q = pq("#zh-profile-activity-wrap .zm-profile-activity-page-item-main");
