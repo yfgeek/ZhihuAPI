@@ -5,9 +5,8 @@
 **    @作者 yfgeek
 **    @时间 2016-10-16
 */
-require('Main.php');
+require_once('Main.php');
 class Follow extends Main{
-    public $detail;
     // 重写init方法
     public function init(){
 	$web_path = "https://www.zhihu.com/people/";

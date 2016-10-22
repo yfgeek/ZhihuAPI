@@ -8,6 +8,9 @@
 **    @时间 2016-10-14
 */
 class Main {
+    public $itemi = 0;
+    public $detail;
+    public $arr;
     //构造器
     function Main($username){
         $this->username = $username;
@@ -18,6 +21,22 @@ class Main {
     require_once(ROOT_PATH . '/phpQuery/phpQuery.php');
     phpQuery::newDocumentFile($web_path. $this->username); 
     }
+    // 统一获取平台
+    protected function getQuestion($column){
+        if($column){
+            foreach ($column as $item) {
+                $this->arr[$this->itemi]["title"]= $this->fixSpaces(pq($item)->html());
+                $this->arr[$this->itemi]["date"] = $this->fixSpaces(pq($item)->parent()->prev(".zm-profile-setion-time")->html());
+                $this->arr[$this->itemi]["url"]= $this->fixUrl(pq($item)->attr("href")); 
+                pq($item)->parent()->find("a")->html(""); //删掉链接
+                $this->arr[$this->itemi]["status"] = $this->fixSpaces(pq($item)->parent()->text());
+                pq($item)->parent()->parent()->find(".zh-summary")->find(".toggle-expand")->html(""); // 删掉阅读全文
+                $this->arr[$this->itemi]["description"] = $this->fixSpaces(pq($item)->parent()->parent()->find(".zh-summary")->text());
+                $this->itemi++;
+            }
+        }
+        return $this->arr;
+    }
     // 修正Url
     protected function fixUrl($url){
     if($url[0]=='/'){
@@ -27,7 +46,7 @@ class Main {
     }
     // 删除多余空格 回车
     protected function fixSpaces($str){
-        //fix bug我的账号会报 Uninitialized string offset: 0的错误
+        // @gengqiupeng: fix bug我的账号会报 Uninitialized string offset: 0的错误
         while(!empty($str[0])&&($str[0]==" " || $str[0]=="　" || $str[0]=="\n")){
             $str = substr($str,1);
         }
